@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-open class PlainLoader: FillableLoader {
+public class PlainLoader: FillableLoader {
     
     internal override func generateLoader() {
         layoutPath()
@@ -44,7 +44,7 @@ open class PlainLoader: FillableLoader {
 
 extension PlainLoader {
 
-    open func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+    public func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         guard animate, let key = anim.value(forKey: "animation") as? String else { return }
         if key == "up" {
             startMoving(up: false)

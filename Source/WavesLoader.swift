@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-open class WavesLoader: FillableLoader {
+public class WavesLoader: FillableLoader {
     
     internal override func generateLoader() {
         layoutPath()
@@ -105,7 +105,7 @@ open class WavesLoader: FillableLoader {
 
 extension WavesLoader {
     
-    open func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+    public func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         guard animate, let key = anim.value(forKey: "animation") as? String else { return }
         if key == "up" {
             startMoving(up: false)
