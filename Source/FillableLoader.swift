@@ -320,7 +320,7 @@ public class FillableLoader: UIView, CAAnimationDelegate {
         moveAnimation.values = up ? [loaderView.frame.height/2 + rectSize/2, loaderView.frame.height/2 - rectSize/2 - extraHeight] : [loaderView.frame.height/2 - rectSize/2 - extraHeight, loaderView.frame.height/2 + rectSize/2]
         moveAnimation.duration = duration
         moveAnimation.isRemovedOnCompletion = false
-        moveAnimation.fillMode = kCAFillModeForwards
+        moveAnimation.fillMode = CAMediaTimingFillMode.forwards
         moveAnimation.delegate = self
         moveAnimation.setValue(key, forKey: "animation")
         shapeLayer.add(moveAnimation, forKey: key)
@@ -332,7 +332,7 @@ public class FillableLoader: UIView, CAAnimationDelegate {
         progressAnimation.values = [oldYPoint, yPoint]
         progressAnimation.duration = 0.2
         progressAnimation.isRemovedOnCompletion = false
-        progressAnimation.fillMode = kCAFillModeForwards
+        progressAnimation.fillMode = CAMediaTimingFillMode.forwards
         shapeLayer.add(progressAnimation, forKey: "progress")
         oldYPoint = yPoint
     }
@@ -342,14 +342,14 @@ public class FillableLoader: UIView, CAAnimationDelegate {
         swingAnimation.values = [0, randomAngle(), -randomAngle(), randomAngle(), -randomAngle(), randomAngle(), 0]
         swingAnimation.duration = 12.0
         swingAnimation.isRemovedOnCompletion = false
-        swingAnimation.fillMode = kCAFillModeForwards
+        swingAnimation.fillMode = CAMediaTimingFillMode.forwards
         swingAnimation.delegate = self
         swingAnimation.setValue("rotation", forKey: "animation")
         shapeLayer.add(swingAnimation, forKey: "rotation")
     }
 
     internal func randomAngle() -> Double {
-        return M_PI_4/(Double(arc4random_uniform(16)) + 8)
+        return (.pi/4)/(Double(arc4random_uniform(16)) + 8)
     }
 
 
